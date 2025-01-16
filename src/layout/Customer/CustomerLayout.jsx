@@ -1,5 +1,6 @@
 import Header from "../../components/Customer/organisms/header/Header";
 import { Outlet } from "react-router-dom";
+import Footer from "../../components/Customer/organisms/footer/Footer";
 import "./CustomerLayout.css";
 
 
@@ -10,6 +11,7 @@ const CustomerLayout = () => {
             <main className="main">
                 <Outlet />
             </main>
+            <Footer />
         </div>
         
         

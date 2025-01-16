@@ -1,0 +1,9 @@
+.newsletter-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    .form-section {
+        display: flex;
+        gap: 15px;
+    }
+}

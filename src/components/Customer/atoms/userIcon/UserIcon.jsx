@@ -1,10 +1,8 @@
 import React from 'react'
 
-function UserIcon({ icon, alt, onClick }) {
+function UserIcon({ icon: Icon, onClick }) {
   return (
-    <button onClick={ onClick } className="user-icon-btn">
-        <img src={ icon } alt={ alt } />
-    </button>
+    <button onClick={ onClick } className="user-icon-btn">{Icon && <Icon className="icon"/>}</button>
   )
 }
 

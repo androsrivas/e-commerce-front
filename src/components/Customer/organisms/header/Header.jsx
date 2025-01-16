@@ -1,13 +1,34 @@
 import React from "react";
 import Logo from "../../atoms/logo/Logo";
-import Navigation from "../../molecules/navigation/Navigation";
 import UserActions from "../../molecules/userActions/UserActions";
+import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
+import {
+  NavigationMenu,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
+import "./Header.css";
+
 
 function Header() {
   return (
-    <header>
+    <header className="header-container">
         <Logo name="Cukies Shop"/>
-        <Navigation />
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink className={ navigationMenuTriggerStyle() }>Inicio</NavigationMenuLink>
+
+              <NavigationMenuTrigger>Tienda</NavigationMenuTrigger>
+
+              <NavigationMenuLink className={ navigationMenuTriggerStyle() }>Sobre Cukies</NavigationMenuLink>
+
+              <NavigationMenuLink className={ navigationMenuTriggerStyle() }>Contacto</NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
         <UserActions />
     </header>
   )

@@ -1,0 +1,7 @@
+.user-actions {
+    display: flex;
+    .icon {
+        margin: 10px;
+    }
+    
+}

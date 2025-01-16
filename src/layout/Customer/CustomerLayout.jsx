@@ -1,14 +1,11 @@
 import Header from "../../components/Customer/organisms/header/Header";
 import { Outlet } from "react-router-dom";
-
+import { Button } from "@/components/ui/button";
 
 const CustomerLayout = () => {
     return (
         <div className="customer-layout">
-            <Header />
-            <main>
-                <Outlet />
-            </main>
+            <Button>Click me</Button>
         </div>
         
         

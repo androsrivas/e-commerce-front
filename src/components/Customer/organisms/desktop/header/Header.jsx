@@ -1,6 +1,6 @@
 import React from "react";
-import Logo from "../../atoms/logo/Logo";
-import UserActions from "../../molecules/userActions/UserActions";
+import Logo from "../../../atoms/logo/Logo";
+import UserActions from "../../../molecules/userActions/UserActions";
 import { navigationMenuTriggerStyle } from "@/components/ui/navigation-menu";
 import {
   NavigationMenu,

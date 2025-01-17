@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import CustomerLayout from "../layout/Customer/CustomerLayout";
+import CustomerLayout from "../../src/layout/Customer/desktop/CustomerLayout";
 
 export const router = createBrowserRouter([
     {
@@ -35,16 +35,22 @@ export const router = createBrowserRouter([
         element: "Layout de admin",
         children: [
             {
-                path: "productos",
-                element: "Productos",
+                path: "dashboard",
+                element: "Inicio de dashboard",
                 children: [
                     {
-                        path: "lista",
-                        element: "Todos los productos"
-                    },
-                    {
-                        path: "crear",
-                        element: "Formulario añadir producto"
+                        path: "productos",
+                        element: "Todos los productos", //mismo elemento que ruta lista
+                        children: [
+                            {
+                                path: "lista",
+                                element: "Todos los productos"
+                            },
+                            {
+                                path: "crear",
+                                element: "Formulario añadir producto"
+                            }
+                        ]
                     }
                 ]
             }

@@ -1,8 +1,8 @@
 import React from "react";
-import Logo from "../../atoms/logo/Logo";
-import Navigation from "../../molecules/navigation/Navigation";
-import Newsletter from "../../molecules/newsletter/Newsletter";
-import Copyright from "../../molecules/copyright/Copyright";
+import Logo from "../../../atoms/logo/Logo";
+import Navigation from "../../../molecules/navigation/Navigation";
+import Newsletter from "../../../molecules/newsletter/Newsletter";
+import Copyright from "../../../molecules/copyright/Copyright";
 import "./Footer.css";
 
 

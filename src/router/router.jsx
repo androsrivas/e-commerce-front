@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import CustomerLayout from "../../src/layout/Customer/desktop/CustomerLayout";
+import AdminLayout from "../layout/Admin/AdminLayout";
 
 export const router = createBrowserRouter([
     {
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element: "Layout de admin",
+        element: <AdminLayout />,
         children: [
             {
                 path: "dashboard",

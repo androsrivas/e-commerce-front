@@ -16,7 +16,8 @@ import {
     CollapsibleContent,
     CollapsibleTrigger,
   } from "@/components/ui/collapsible";  
-import Logo from "../../../Customer/atoms/logo/Logo";
+import Logo from "@/components/Customer/atoms/logo/Logo";
+import { useSidebarState } from "../../../../hooks/useSidebar/UseSidebarState";
 import { 
     RiHomeSmile2Line, 
     RiBarChartGroupedFill, 
@@ -29,7 +30,6 @@ import {
     RiTruckLine,
     RiArrowDropDownLine     
 } from "react-icons/ri";
-import { useState } from "react";
 
 export function AppSidebar() {
     const items = [
@@ -84,14 +84,7 @@ export function AppSidebar() {
         }      
     ];
 
-    const [openItems, setOpenItems] = useState({});
-
-    const toggleItems = (title) => {
-        setOpenItems((prev) => ({
-            ...prev,
-            [title]: !prev[title]
-        }));
-    }
+   const { openItems, toggleItems } = useSidebarState();
 
   return (
     <Sidebar>

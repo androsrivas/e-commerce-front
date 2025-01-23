@@ -8,7 +8,7 @@ const getReviews = async (productId) => {
 };
 
 const getReviewsByCustomer = async (customerId) => {
-  const response = await axios.get(`${apiReviewsUrl}?userId=${userId}`);
+  const response = await axios.get(`${apiReviewsUrl}?userId=${customerId}`);
   return response.data;
 }
 

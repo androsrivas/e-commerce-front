@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import CustomerLayout from "../../src/layout/Customer/desktop/CustomerLayout";
 import AdminLayout from "../layout/Admin/AdminLayout";
+import ProductShop from "../pages/productShop/ProductShop";
 
 export const router = createBrowserRouter([
     {
@@ -10,11 +11,11 @@ export const router = createBrowserRouter([
             {
                 //
                 path: "/",
-                element: "LandingPage o Home",
-                children: [
+                element: <ProductShop/>,
+               /*  children: [
                     {
-                        path: "tienda",
-                        element: "Shop",
+                        path: "/tienda",
+                        element: <ProductShop/>,
                         children: [
                             {
                                 path: "producto/:productId",
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
                         element: "Checkout"
 
                     }
-                ]
+                ] */
             }
         ]
     },

@@ -15,7 +15,6 @@ const CustomerLayout = () => {
                 <Header className="header" />
                 <main className="main">
                     <Outlet />
-
                 </main>
                 <Footer />
             </div>

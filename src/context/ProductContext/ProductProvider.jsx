@@ -1,4 +1,5 @@
 import { ProductContext } from "./ProductContext";
+import useProduct from "../../hooks/useProducts";
 
 
 const ProductProvider = ({ children }) => {

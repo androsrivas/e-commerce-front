@@ -20,7 +20,7 @@ function ProductCard({ imageUrl, name, price, featured, reviews, rating }) {
 
         <div className="flex items-center mt-2">
           <div className="flex text-yellow-400">
-            {[ ...Array(5) ].map((_, index) => (
+            {[ ...Array(5) ].map((star, index) => (
               <StarIcon key={index} className={`h-5 w-5 ${index < rating ? 'text-yellow-400' : 'text-gray-300'}`} />
             ))}
           </div>

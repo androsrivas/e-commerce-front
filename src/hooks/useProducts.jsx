@@ -11,12 +11,12 @@ const useProduct = () => {
   };
 
   const createProduct = async (newProduct) => {
-    const createProduct = await createProducts(newProduct);
-    setProducts((prevProducts) => [...prevProducts, createProduct]);
+    const createdProduct = await createProducts(newProduct);
+    setProducts((prevProducts) => [...prevProducts, createdProduct]);
   };
 
-  const updateProductById = async (id, updateProduct) => {
-    const updated = await updateProduct(id, updateProduct);
+  const updateProductById = async (id, updatedProduct) => {
+    const updated = await updateProduct(id, updatedProduct);
     setProducts((prevProducts) =>
       prevProducts.map((product) => (product.id === id ? updated : product))
     );

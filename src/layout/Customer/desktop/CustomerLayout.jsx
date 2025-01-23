@@ -1,7 +1,9 @@
 import Header from "../../../components/Customer/organisms/desktop/header/Header";
 import { Outlet } from "react-router-dom";
 import Footer from "../../../components/Customer/organisms/desktop/footer/Footer";
+import ProductCard from "../../../components/Customer/molecules/card/ProductCard";
 import "./CustomerLayout.css";
+
 
 
 const CustomerLayout = () => {
@@ -9,7 +11,7 @@ const CustomerLayout = () => {
         <div className="customer-layout">
             <Header className="header"/>
             <main className="main">
-                <Outlet />
+              <ProductCard/>  
             </main>
             <Footer />
         </div>

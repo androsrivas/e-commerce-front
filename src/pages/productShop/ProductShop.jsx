@@ -12,8 +12,8 @@ const ProductShop = () => {
     return (
             
             <div className="customer-layout">
-                <main className="main">
-                    <div className="grid grid-flow-col" >
+                <main className="main  ">
+                    <div className="grid grid-cols-4 gap-5" >
                         {products.map(product => (
                             <div key={Math.random()}>
                                 <ProductCard product={product}  />

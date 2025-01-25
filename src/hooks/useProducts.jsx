@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { createProducts, getAllProducts, updateProduct, deleteProduct } from "../service/ProductService";
+import { createProducts, getAllProducts, updateProduct, deleteProductById } from "../service/ProductService";
 
 const useProduct = () => {
   const [products, setProducts] = useState([]);
@@ -23,7 +23,7 @@ const useProduct = () => {
   };
 
   const deleteProductById = async (id) => {
-    await deleteProduct(id);
+    await deleteProductById(id);
     setProducts((prevProducts) => prevProducts.filter((product) => product.id !== id));
   };
 

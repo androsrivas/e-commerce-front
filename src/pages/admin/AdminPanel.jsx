@@ -52,7 +52,7 @@ const AdminPanel = () => {
         />
       </div>
       </div>
-      <ProductTable products={products}/>
+      <ProductTable products={filteredProducts} onFeaturedChange={handleFeaturedChange}/>
     </main>
   );
 };

@@ -16,8 +16,8 @@ const TableBody = ({products}) => {
               <td className="px-4 py-2">{product.price} €</td>
               <td className="px-4 py-2">
                 <Switch 
-                isChecked={product.featured} 
-                onChange={(e) => onFeaturedChange(product.id, e.target.checked)}
+                checked={product.featured} 
+                onCheckedChange={(e) => onFeaturedChange(product.id, e)}
                 />
               </td>
               <td className="px-4 py-2 flex space-x-2">

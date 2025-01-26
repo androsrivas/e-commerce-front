@@ -6,6 +6,7 @@ import path from "path";
 import CreateFormLayout from "../layout/Admin/CreateFormLayout";
 
 import EditProductForm from "../components/Admin/organisms/EditProductForm";
+import CategoryPanel from "../pages/admin/CategoryPanel";
 
 export const router = createBrowserRouter([
     {
@@ -48,7 +49,11 @@ export const router = createBrowserRouter([
     {
         path: "update-product/:id",
         element: <EditProductForm/>,
-      },
+    },
+    {
+        path: "/categories",
+        element: <CategoryPanel/>
+    }
          
         
     

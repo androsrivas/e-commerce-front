@@ -1,9 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../../../context/ProductContext/ProductContext";
 import DeleteModal from "./DeleteModal";
-
-import React from 'react'
-import { useState } from "react";
 import DeleteProductBtn from "../atoms/adminCrudBtns/DeleteProductBtn";
 
 const DeleteProductAction = ({ product }) => {
@@ -16,8 +13,10 @@ const DeleteProductAction = ({ product }) => {
   return (
     <>
     <DeleteProductBtn
+      product={product}
       onClick={onOpen}
     />
+    
     <DeleteModal
       isOpen={isOpen}
       onClose={onClose}

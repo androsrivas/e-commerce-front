@@ -34,7 +34,7 @@ function EditFormProduct({ product, isOpen, onClose }) {
   };
 
   return (
-    <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? 'block' : 'hidden'}`}>
+    <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isOpen ? isOpen : onClose}`}>
       <div className="bg-white rounded-lg w-full max-w-lg p-6">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-semibold text-black">Edit Product</h2>

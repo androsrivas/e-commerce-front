@@ -5,8 +5,11 @@ import { ProductContext } from "../../../../context/ProductContext/ProductContex
 
 const DeleteProductBtn = ({product}) => {
   const {deleteProductById} = useContext(ProductContext);
+  
   return (
-    <Button variant="destructive" onClick={()=>deleteProductById(product.id)}>
+    <Button variant="destructive" onClick={()=>{
+      console.log("Product ID:", product.id);
+      deleteProductById(product.id)}}>
       <TrashIcon/>
     </Button>
     

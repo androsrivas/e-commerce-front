@@ -5,6 +5,8 @@ import ProductShop from "../pages/productShop/ProductShop";
 import path from "path";
 import CreateFormLayout from "../layout/Admin/CreateFormLayout";
 
+import EditProductForm from "../components/Admin/organisms/EditProductForm";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -43,6 +45,10 @@ export const router = createBrowserRouter([
         path: "/create-product",
         element: <CreateFormLayout />
     },
+    {
+        path: "update-product/:id",
+        element: <EditProductForm/>,
+      },
          
         
     

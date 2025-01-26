@@ -2,7 +2,11 @@
 
 function DeleteModal({ isOpen, onClose, productId, deleteProductById }) {
   const handleDelete = async (id) => {
-    if (id) {
+    if (!id) {
+      console.error('Product ID is undefined or null');
+      alert('Product ID is missing.');
+      return;
+    }
       try {
         await deleteProductById(id);
         alert('Product deleted.');
@@ -10,9 +14,7 @@ function DeleteModal({ isOpen, onClose, productId, deleteProductById }) {
       } catch (error) {
         alert('Error deleting product.');
       }
-    } else {
-      console.error('Product ID is undefined');
-    }
+   
   };
 
   return (

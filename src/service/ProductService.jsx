@@ -21,7 +21,7 @@ const updateProduct = async (id, updateProduct) => {
   return response.data;
 };
 
-const deleteProductById = async(id) =>{
+const deleteProduct = async(id) =>{
   const response = await axios.delete(`${apiProductsUrl}/${id}`);
   return response.data;
 }
@@ -31,5 +31,5 @@ export {
   getProductById,
   createProducts,
   updateProduct,
-  deleteProductById
+  deleteProduct
 };

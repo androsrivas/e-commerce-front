@@ -87,7 +87,7 @@ export function AppSidebar() {
    const { openItems, toggleItems } = useSidebarState();
 
   return (
-    <Sidebar>
+    <Sidebar className="bg-rose-900 text-white">
         <SidebarHeader>
             <Logo name="Cukies Shop" to="#" className=""/>
         </SidebarHeader>

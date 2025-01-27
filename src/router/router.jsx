@@ -4,6 +4,10 @@ import AdminLayout from "../layout/Admin/AdminLayout";
 import ProductShop from "../pages/productShop/ProductShop";
 import path from "path";
 import CreateFormLayout from "../layout/Admin/CreateFormLayout";
+import ProductFilters from "../pages/productShop/ProductFilters";
+import ProductSeparateFilters from "../pages/productShop/ProductSeparateFilters";
+import EditProductForm from "../components/Admin/organisms/EditProductForm";
+import CategoryPanel from "../pages/admin/CategoryPanel";
 
 export const router = createBrowserRouter([
     {
@@ -31,6 +35,10 @@ export const router = createBrowserRouter([
 
                     }
                 ] */
+            },
+            {
+                path: "/filters",
+                element: <ProductSeparateFilters/>
             }
         ]
     },
@@ -43,6 +51,14 @@ export const router = createBrowserRouter([
         path: "/create-product",
         element: <CreateFormLayout />
     },
+    {
+        path: "update-product/:id",
+        element: <EditProductForm/>,
+    },
+    {
+        path: "/categories",
+        element: <CategoryPanel/>
+    }
          
         
     

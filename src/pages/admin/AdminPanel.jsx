@@ -1,11 +1,8 @@
 import { useState, useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/ProductContext";
 import CreateProductBtn from "../../components/Admin/atoms/adminCrudBtns/CreateProductBtn";
-import DeleteProductBtn from "../../components/Admin/atoms/adminCrudBtns/DeleteProductBtn";
-import EditProductBtn from "../../components/Admin/atoms/adminCrudBtns/EditProductBtn";
 import SearchBar from "../../components/Admin/organisms/SearchBar";
 import { useNavigate } from 'react-router-dom';
-
 import ProductTable from "../../components/Admin/organisms/ProductTable";
 
 const AdminPanel = () => {
@@ -19,7 +16,7 @@ const AdminPanel = () => {
   };
   const filteredProducts = products.filter(product => {
     const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFeatured = showFeatured ? products.featured : true;
+    const matchesFeatured = showFeatured ? product.featured : true;
     return matchesSearchTerm && matchesFeatured;
   });
   const handleFeaturedChange = async (id, isFeatured) => {
@@ -52,7 +49,7 @@ const AdminPanel = () => {
         />
       </div>
       </div>
-      <ProductTable products={products}/>
+      <ProductTable products={filteredProducts} />
     </main>
   );
 };

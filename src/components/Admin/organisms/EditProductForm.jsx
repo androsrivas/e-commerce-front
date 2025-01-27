@@ -38,10 +38,17 @@ const EditProductForm = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
+  const handleSwitchChange = (e) => {
+    const { name, checked } = e.target;
+    setProduct((prevData) => ({
+        ...prevData,
+        [name]: checked,
+    }));
+};
   const handleSubmit = (event) => {
     event.preventDefault();
     axios
-      .put(apiProductsUrl + id, product)
+      .put(`${apiProductsUrl}/${id}`, product)
       .then((res) => {
         setModalMessage("Producto modificado con éxito");
         setIsModalOpen(true);
@@ -170,7 +177,7 @@ const EditProductForm = () => {
         </button>
       </form>
 
-      <Link to={"/"}>
+      <Link to={"/admin"}>
         <button className="w-full mt-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 focus:outline-none">
           Cancel
         </button>

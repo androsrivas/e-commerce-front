@@ -16,7 +16,7 @@ const AdminPanel = () => {
   };
   const filteredProducts = products.filter(product => {
     const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFeatured = showFeatured ? products.featured : true;
+    const matchesFeatured = showFeatured ? product.featured : true;
     return matchesSearchTerm && matchesFeatured;
   });
   const handleFeaturedChange = async (id, isFeatured) => {

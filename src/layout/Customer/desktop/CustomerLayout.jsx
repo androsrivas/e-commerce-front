@@ -11,9 +11,9 @@ const CustomerLayout = () => {
     
     return (
         <ProductProvider>
-            <div className="customer-layout">
+            <div className="customer-layout bg-rose-200">
                 <Header className="header" />
-                <main className="main">
+                <main className="main ">
                     <Outlet />
                 </main>
                 <Footer />

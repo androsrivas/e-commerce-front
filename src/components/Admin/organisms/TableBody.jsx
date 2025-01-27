@@ -1,9 +1,11 @@
 import EditProductBtn from "../atoms/adminCrudBtns/EditProductBtn";
 import { Switch } from "@/components/ui/switch";
 import DeleteProductAction from "./DeleteProductAction";
+import FeaturedSwitch from "../molecules/FeaturedSwitch";
 
 
-const TableBody = ({products}) => {
+const TableBody = ({products, onFeaturedChange}) => {
+ 
   return (
     <>
     <tbody products={products} >
@@ -17,7 +19,8 @@ const TableBody = ({products}) => {
               <td className="px-4 py-2">
                 <Switch 
                 checked={product.featured} 
-                onCheckedChange={(e) => onFeaturedChange(product.id, e)}
+                onChange={(e) => onFeaturedChange(monster.id, e.target.checked)}
+                className="bg-indigo-500"
                 />
               </td>
               <td className="px-4 py-2 flex space-x-2">

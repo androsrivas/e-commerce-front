@@ -1,6 +1,6 @@
 
 
-const FeaturedSwitch = ({ checked, onChange, labelColor = "black" }) => {
+const FeaturedSwitch = ({ checked, onChange,  }) => {
   return (
     <div className="flex items-center space-x-2">
       <label htmlFor="featured" className={`text-sm font-medium text-black`}>Featured</label>

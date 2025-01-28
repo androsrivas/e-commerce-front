@@ -9,9 +9,9 @@ function AdminLayout({ children }) {
     <ProductProvider>
       <SidebarProvider>
       <AppSidebar />
-      <main>
-        <SidebarTrigger />
-        <AdminPanel/>
+      <main className="flex w-8xl mx-10">
+        <SidebarTrigger className="flex"/>
+        <AdminPanel />
       </main>
     </SidebarProvider>
     </ProductProvider>

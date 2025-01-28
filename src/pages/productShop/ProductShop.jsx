@@ -13,10 +13,10 @@ const ProductShop = () => {
             
             <div className="customer-layout">
                 <main className="main  ">
-                    <div className="grid grid-cols-4 gap-5" >
+                    <div className="grid xl:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-5" >
                         {products.map(product => (
                             <div key={Math.random()}>
-                                <ProductCard product={product}  />
+                                <ProductCard product={product} className="margin-4"  />
                             </div>
                         ))}
                     </div>

@@ -5,7 +5,7 @@ const ProductTable = ({products, onFeaturedChange}) => {
   return (
     <table className="min-w-full table-auto">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-rose-100">
             <th className="px-4 py-2">Image</th>
             <th className="px-4 py-2">Name</th>
             <th className="px-4 py-2">Price</th>

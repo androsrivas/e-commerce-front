@@ -9,6 +9,7 @@ const getAllProducts = async() => {
 
 const getProductById = async() => {
   const response = await axios.get(`${apiProductsUrl}/${id}`);
+  return response.data;
 };
 
 const createProducts = async (newProduct) => {
@@ -24,7 +25,7 @@ const updateProduct = async (id, updateProduct) => {
 const deleteProduct = async(id) =>{
   const response = await axios.delete(`${apiProductsUrl}/${id}`);
   return response.data;
-}
+};
 
 export {
   getAllProducts,

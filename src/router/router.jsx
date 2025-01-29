@@ -1,6 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
 import CustomerLayout from "../../src/layout/Customer/desktop/CustomerLayout";
 import AdminLayout from "../layout/Admin/AdminLayout";
+import ProductShop from "../pages/productShop/ProductShop";
+import path from "path";
+import CreateFormLayout from "../layout/Admin/CreateFormLayout";
+import ProductFilters from "../pages/productShop/ProductFilters";
+import ProductSeparateFilters from "../pages/productShop/ProductSeparateFilters";
+import EditProductForm from "../components/Admin/organisms/EditProductForm";
+import CategoryPanel from "../pages/admin/CategoryPanel";
 
 export const router = createBrowserRouter([
     {
@@ -10,11 +17,11 @@ export const router = createBrowserRouter([
             {
                 //
                 path: "/",
-                element: "LandingPage o Home",
-                children: [
+                element: <ProductShop/>,
+               /*  children: [
                     {
-                        path: "tienda",
-                        element: "Shop",
+                        path: "/tienda",
+                        element: <ProductShop/>,
                         children: [
                             {
                                 path: "producto/:productId",
@@ -27,34 +34,32 @@ export const router = createBrowserRouter([
                         element: "Checkout"
 
                     }
-                ]
+                ] */
+            },
+            {
+                path: "/filters",
+                element: <ProductSeparateFilters/>
             }
         ]
     },
     {
         path: "/admin",
-        element: <AdminLayout />,
-        children: [
-            {
-                path: "dashboard",
-                element: "Inicio de dashboard",
-                children: [
-                    {
-                        path: "productos",
-                        element: "Todos los productos", //mismo elemento que ruta lista
-                        children: [
-                            {
-                                path: "lista",
-                                element: "Todos los productos"
-                            },
-                            {
-                                path: "crear",
-                                element: "Formulario añadir producto"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
+        element: <AdminLayout />
+    },
+
+    {
+        path: "/create-product",
+        element: <CreateFormLayout />
+    },
+    {
+        path: "update-product/:id",
+        element: <EditProductForm/>,
+    },
+    {
+        path: "/categories",
+        element: <CategoryPanel/>
     }
+         
+        
+    
 ])

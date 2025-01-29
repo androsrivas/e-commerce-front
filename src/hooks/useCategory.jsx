@@ -1,17 +1,26 @@
 import { useState, useEffect, useCallback } from "react";
-import { createCategory, getAllCategories, updateCategory, deleteCategory } from "../service/CategoryService";
+import { getAllCategories, getCategoryById, createCategory as createCategoryService, updateCategory, deleteCategory } from "../service/CategoryService";
 import useApiCall from "./useApiCall";
+
 const useCategory = () => {
     const [ categories, setCategories ] = useState([]);
+    const [ category, setCategory ] = useState(null);
     const { apiCall, loading, errors } = useApiCall();
 
     const getAllCategoriesFromApiService = useCallback(() => {
         apiCall(getAllCategories, (data) => setCategories(data));
     }, [apiCall]);
-    
-    const createCategory = async (newCategory) => {
+
+    const getCategoryFromApiService = async (id) => {
         apiCall(
-            () => createCategory(newCategory),
+            () => getCategoryById(id),
+            (fetchedCategory) => setCategory(fetchedCategory)
+        );
+    };
+    
+    const createNewCategory = async (newCategory) => {
+        apiCall(
+            () => createCategoryService(newCategory),
             (createdCategory) => setCategories((prevCategories) => [...prevCategories, createdCategory])
         );
     };
@@ -39,11 +48,13 @@ const useCategory = () => {
 
     return {
         categories,
+        category,
         loading,
         errors,
-        createCategory,
-        updateCategoryById,
-        deleteCategoryById,
+        createCategory: createNewCategory,
+        updateCategory: updateCategoryById,
+        deleteCategory: deleteCategoryById,
+        getCategoryById : getCategoryFromApiService,
         refreshCategories: getAllCategoriesFromApiService
     };
 };

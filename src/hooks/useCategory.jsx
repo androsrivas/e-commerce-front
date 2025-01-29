@@ -1,10 +1,11 @@
 import { useState, useEffect, useCallback } from "react";
-import { getAllCategories, createCategory, updateCategory, deleteCategory } from "";
+import { getAllCategories, createCategory, updateCategory, deleteCategory } from "../service/CategoryService";
+import useGlobalErrorHandler from "./useGlobalErrorHandler";
 
 const useCategory = () => {
     const [ categories, setCategories ] = useState([]);
     const [ loadingCount, setLoadingCount ] = useState(0);
-    const [ errors, setErrors ] = useState([]);
+    const { errors, handleError, clearErrors } = useGlobalErrorHandler();
 
     const setLoading = (isLoading) => {
         setLoadingCount((prev) => prev + (isLoading ? 1 : -1));
@@ -12,61 +13,57 @@ const useCategory = () => {
 
     const getAllCategoriesFromApiService = useCallback(async() => {
         setLoading(true);
-        setErrors([]);
+        clearErrors();
         try {
             const data = await getAllCategories();
             setCategories(data);
         } catch (error) {
-            setErrors((prevErrors) => [...prevErrors, "Error fetching categories."]);
-            console.error("Error fetching categories: ", error);
+            handleError(error);
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [clearErrors, handleError]);
 
     const createCategoryByName = useCallback(async(newCategory) => {
         setLoading(true);
-        setErrors([]);
+        clearErrors();
         try {
             const createdCategory = await createCategory(newCategory);
             setCategories((prevCategories) => [...prevCategories, createdCategory]);
         } catch (error) {
-            setErrors((prevErrors) => [...prevErrors, "Error creating new category."]);
-            console.error("Error createing new category: ", error);
+            handleError(error);
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [clearErrors, handleError]);
 
     const updateCategoryById = useCallback(async(id, updatedCategory) => {
         setLoading(true);
-        setErrors([]);
+        clearErrors();
         try {
             const updated = await updateCategory(id, updatedCategory);
             setCategories((prevCategories) => 
                 prevCategories.map((category) => (category.id === id ? updated : category))
             );
         } catch (error) {
-            setErrors((prevErrors) => [...prevErrors, "Error updating category."]);
-            console.error("Error updating category: ", error);
+            handleError(error);
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [clearErrors, handleError]);
 
     const deleteCategoryById = useCallback(async(id) => {
         setLoading(true);
-        setErrors([]);
+        clearErrors
         try {
             await deleteCategory(id);
             setCategories((prevCategories) => prevCategories.filter((category) => category.id !== id));
         } catch (error) {
-            setErrors((prevErrors) => [...prevErrors, "Error deleting category."]);
-            console.error("Error deleting category: ", error);
+            handleError(error);
         } finally {
             setLoading(false);
         }
-    }, []);
+    }, [clearErrors, handleError]);
 
     useEffect(() => {
         getAllCategoriesFromApiService();

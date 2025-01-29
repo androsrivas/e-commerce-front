@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { createProducts, getAllProducts, updateProduct, deleteProduct } from "../service/ProductService";
+import useGlobalErrorHandler from "./useGlobalErrorHandler";
 
 const useProduct = () => {
   const [products, setProducts] = useState([]);
   const [loadingCount, setLoadingCount] = useState(0);
-  const [errors, setErrors] = useState([]);
+  const [errors, handleError, clearErrors] = useGlobalErrorHandler();
 
   const setLoading = (isLoading) => {
     setLoadingCount((prev) => prev + (isLoading ? 1 : -1));
@@ -12,13 +13,12 @@ const useProduct = () => {
 
   const getAllProductsFromApiService = async () => {
     setLoading(true);
-    setErrors([]);
+    clearErrors();
     try {
       const data = await getAllProducts();
       setProducts(data);
-    } catch (errors) {
-      setErrors((prevErrors) => [...prevErrors, "Error fetching products."]);
-      console.error("Error fetching products: ", errors);
+    } catch (error) {
+      handleError(error);
     } finally {
       setLoading(false);
     }
@@ -26,13 +26,12 @@ const useProduct = () => {
 
   const createProduct = async (newProduct) => {
     setLoading(true);
-    setErrors([]);
+    clearErrors();
     try {
       const createdProduct = await createProducts(newProduct);
       setProducts((prevProducts) => [...prevProducts, createdProduct]);
     } catch (error) {
-      setErrors((prevErrors) => [...prevErrors, "Error creating products."]);
-      console.error("Error creating product:", error);
+      handleError(error);
     } finally {
       setLoading(false);
     }

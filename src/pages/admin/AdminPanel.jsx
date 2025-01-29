@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { ProductContext } from "../../context/ProductContext/ProductContext";
 import CreateProductBtn from "../../components/Admin/atoms/adminCrudBtns/CreateProductBtn";
 import SearchBar from "../../components/Admin/organisms/SearchBar";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import ProductTable from "../../components/Admin/organisms/ProductTable";
 
 const AdminPanel = () => {
@@ -48,6 +48,12 @@ const AdminPanel = () => {
           className="px-4 py-2 bg-indigo-600 text-white rounded-md"
         />
       </div>
+      <Link
+          to="/categories"
+          className="inline-block bg-rose-600 text-white py-2 px-4 rounded-md hover:bg-rose-700 transition shadow-lg"
+        >
+          Categories
+        </Link>
       </div>
       <ProductTable products={filteredProducts} />
     </main>

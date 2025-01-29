@@ -40,7 +40,7 @@ const CategoryPanel = () => {
   const handleUpdate = () => {
     axios.put(`${API_URL}/${category.id}`, category)
       .then(response => {
-        setCategories(categories.map(c => c.id === category.id ? response.data : c));
+        setCategories(categories.map(category => category.id === category.id ? response.data : category));
         setCategory({ id: '', name: '' });
         setIsEditing(false);
       })
@@ -48,6 +48,7 @@ const CategoryPanel = () => {
   };
 
   const handleEdit = (categoryToEdit) => {
+    console.log(categoryToEdit)
     setCategory(categoryToEdit);
     setIsEditing(true);
   };
@@ -96,7 +97,7 @@ const CategoryPanel = () => {
             <td className="border px-4 py-2">{category.name}</td>
             <td className="border px-4 py-2 text-center  space-x-2">
               <Button
-                onClick={() => handleEdit(category)}
+                onClick={() => handleEdit(category.id)}
                 className="rounded-md bg-indigo-500"
               >
                 <PencilSquareIcon className="w-5 h-5" />

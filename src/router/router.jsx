@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import CustomerLayout from "../../src/layout/Customer/desktop/CustomerLayout";
+import CustomerLayout from "../../src/layout/Customer/CustomerLayout";
 import AdminLayout from "../layout/Admin/AdminLayout";
 // import ProductShop from "../pages/productShop/ProductShop";
 // import ProductSeparateFilters from "../pages/productShop/ProductSeparateFilters";

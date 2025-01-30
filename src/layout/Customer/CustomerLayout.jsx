@@ -1,11 +1,8 @@
-import Header from "../../../components/Customer/organisms/desktop/header/Header";
+import Header from "../../components/Customer/organisms/desktop/header/Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../../../components/Customer/organisms/desktop/footer/Footer";
+import Footer from "../../components/Customer/organisms/desktop/footer/Footer";
+import ProductProvider from "../../context/ProductContext/ProductProvider";
 import "./CustomerLayout.css";
-import ProductProvider from "../../../context/ProductContext/ProductProvider";
-
-
-
 
 const CustomerLayout = () => {
     

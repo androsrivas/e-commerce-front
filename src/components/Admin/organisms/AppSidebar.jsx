@@ -16,8 +16,8 @@ import {
     AccordionContent
 } from "@/components/ui/accordion";
 import { NavLink } from "react-router-dom";
-import Logo from "../../../Customer/atoms/logo/Logo";
-import useSidebarItems from "../../../../hooks/UseSidebarItems";
+import Logo from "../../Customer/atoms/logo/Logo";
+import useSidebarItems from "../../../hooks/UseSidebarItems";
 
 export function AppSidebar() {
     const { items, concepts } = useSidebarItems();

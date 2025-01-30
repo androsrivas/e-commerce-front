@@ -1,8 +1,9 @@
 import React from "react";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "../../components/Admin/organisms/appSidebar/AppSidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
+import { AppSidebar } from "../../components/Admin/organisms/AppSidebar";
 import ProductProvider from "../../context/ProductContext/ProductProvider";
 import CategoryProvider from "../../context/categoryContext/CategoryProvider";
+import AdminHeader from "../../components/Admin/organisms/AdminHeader";
 
 function AdminLayout({ children }) {
   return (
@@ -10,8 +11,9 @@ function AdminLayout({ children }) {
     <ProductProvider>
       <SidebarProvider>
       <AppSidebar />
+      <AdminHeader />
       <main className="flex w-8xl mx-10">
-        <SidebarTrigger className="flex"/>
+        { children }
       </main>
     </SidebarProvider>
     </ProductProvider>

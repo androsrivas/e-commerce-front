@@ -1,13 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import CustomerLayout from "../../src/layout/Customer/desktop/CustomerLayout";
 import AdminLayout from "../layout/Admin/AdminLayout";
-import ProductShop from "../pages/productShop/ProductShop";
-import path from "path";
-import CreateFormLayout from "../layout/Admin/CreateFormLayout";
-import ProductFilters from "../pages/productShop/ProductFilters";
-import ProductSeparateFilters from "../pages/productShop/ProductSeparateFilters";
-import EditProductForm from "../components/Admin/organisms/EditProductForm";
-import CategoryPanel from "../pages/admin/CategoryPanel";
+// import ProductShop from "../pages/productShop/ProductShop";
+// import ProductSeparateFilters from "../pages/productShop/ProductSeparateFilters";
+import ProductList from "../pages/Admin/ProductList";
 
 export const router = createBrowserRouter([
     {
@@ -16,8 +12,8 @@ export const router = createBrowserRouter([
         children: [
             {
                 //
-                path: "/",
-                element: <ProductShop/>,
+                // path: "/",
+                // element: <ProductShop/>,
                /*  children: [
                     {
                         path: "/tienda",
@@ -36,30 +32,37 @@ export const router = createBrowserRouter([
                     }
                 ] */
             },
-            {
-                path: "/filters",
-                element: <ProductSeparateFilters/>
-            }
+            // {
+            //     path: "/filters",
+            //     element: <ProductSeparateFilters/>
+            // }
         ]
     },
     {
         path: "/admin",
-        element: <AdminLayout />
-    },
-
-    {
-        path: "/create-product",
-        element: <CreateFormLayout />
-    },
-    {
-        path: "update-product/:id",
-        element: <EditProductForm/>,
-    },
-    {
-        path: "/categories",
-        element: <CategoryPanel/>
-    }
-         
-        
+        element: <AdminLayout />,
+        children: [
+            {
+                path: "dashboard",
+                element: "Inicio de dashboard",
+                children: [
+                    {
+                        path: "productos",
+                        element: "Todos los productos",
+                        children: [
+                            {
+                                path: "lista",
+                                element: <ProductList />
+                            },
+                            // {
+                            //     path: "crear",
+                            //     element: <AddProduct />
+                            // }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }        
     
 ])

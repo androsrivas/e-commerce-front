@@ -1,5 +1,5 @@
 import { CategoryContext } from "./CategoryContext";
-import useCategory from "../../hooks/";
+import useCategory from "../../hooks/useCategory";
 
 const CategoryProvider = ({ children }) => {
     const { categories, createCategory, updateCategoryById, deleteCategoryById, refreshCategories } = useCategory();
@@ -16,3 +16,5 @@ const CategoryProvider = ({ children }) => {
         </CategoryContext.Provider>
     );
 };
+
+export default CategoryProvider;
